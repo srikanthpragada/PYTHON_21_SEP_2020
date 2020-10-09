@@ -17,6 +17,7 @@ def ispositive(n):
     """
     return n > 0
 
+
 if __name__ == '__main__':  # Module is run as script
     print("In num_funs module!")
 else:
