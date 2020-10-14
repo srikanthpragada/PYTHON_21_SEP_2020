@@ -29,10 +29,24 @@ class Product:
     def getprice(self):
         return (self.price * Product.taxrate / 100) + self.price
 
+    def __gt__(self, other):
+        return self.price > other.price
+
+
+class DiscountProduct(Product):
+    # Constructor
+    def __init__(self, name, price, disrate, qoh=0):
+        super().__init__(name, price, qoh)
+        self.disrate = disrate
+
+    def getprice(self):
+        discount = self.price * self.disrate / 100
+        discounted_price = self.price - discount
+        return (discounted_price * Product.taxrate / 100) + discounted_price
+
 
 # Create an object of Product class
 p1 = Product("Bose Headphones", 25000, 3)
-p1.price = 10000
 p1.sell(1)
 p1.display()  # Call method
 
@@ -40,5 +54,13 @@ print(p1.getprice())
 Product.change_taxrate(15)
 print(p1.getprice())
 
-p2 = Product("Wacom Tablet", 7000)
-p2.display()  # Call method
+p2 = DiscountProduct("Wacom Tablet", 7000, 20)
+print(p2.getprice())
+
+products = [Product("iPhone 12", 120000, 10),
+            DiscountProduct("iPhone 11 pro", 80000, 20, 5),
+            Product("Apple Watch", 30000, 20)
+            ]
+
+for p in sorted(products):
+    print(p.getprice())  # Polymorphism
