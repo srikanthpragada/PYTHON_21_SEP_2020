@@ -1,3 +1,11 @@
+class InvalidCourseError(Exception):
+    def __init__(self, course):
+        self.course = course
+
+    def __str__(self):
+        return f"Invalid course : {self.course}"
+
+
 class Student:
     courses = {'java': 8000, 'python': 10000, 'ds': 20000}
 
@@ -8,7 +16,8 @@ class Student:
     def __init__(self, name, course, feepaid=0):
         self.name = name
         if course not in Student.courses:
-            raise ValueError('Invalid course!')
+            raise InvalidCourseError(course)
+
         self.course = course
         self.feepaid = 0
 
