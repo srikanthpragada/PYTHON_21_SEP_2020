@@ -1,0 +1,8 @@
+Scott,98,78,76
+Tom,87,88,65,76
+Roberts,88,77,95,88
+Jason,88,77
+
+Andy,56,78,99
+Jack,89,Abc
+Mike,89,  84,,
