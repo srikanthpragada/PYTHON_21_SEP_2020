@@ -1,0 +1,6 @@
+Taking backup,10-10-2020,12-10-2020
+Reading about CSRF,15-10-2020,18-10-2020
+Building new home page,18-10-2020
+Delete files,19-10-2020,22-10-2020
+Connect to DB,,22-10-2020
+
