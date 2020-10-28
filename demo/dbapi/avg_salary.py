@@ -8,9 +8,10 @@ except Exception as ex:
 
 try:
     cur = con.cursor()
-    cur.execute("select * from employees")
-    for emp in cur.fetchall():
-        print(f"{emp[0]:5} {emp[1]:30}  {emp[2]:10} {emp[3]:10}")
+    cur.execute("select sum(salary), avg(salary) from employees")
+    totals = cur.fetchone()
+    print(f"Total   Salary :  {totals[0]:.0f}")
+    print(f"Average Salary :  {totals[1]:.0f}")
 except Exception as ex:
     print(ex)
 finally:
